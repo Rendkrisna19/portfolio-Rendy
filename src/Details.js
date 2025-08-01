@@ -19,6 +19,10 @@ import git from "./assets/techstack/git.png";
 import npm from "./assets/techstack/npm.png";
 import postman from "./assets/techstack/postman.png";
 import figma from "./assets/techstack/figma.png";
+import php from "./assets/techstack/laravel.png";
+import laravel from "./assets/techstack/php.png";
+import mysql from "./assets/techstack/mysql.png";
+import python from "./assets/techstack/python.jpg";
 // Porject Images
 import projectImage1 from "./assets/projects/project1.jpg";
 import projectImage2 from "./assets/projects/project2.jpg";
@@ -35,10 +39,10 @@ export const logos = {
 
 // Enter your Personal Details here
 export const personalDetails = {
-  name: "Pavan MG",
-  tagline: "I build things for web",
+  name: "Rendy Krisna",
+  tagline: "I am Fullstack Developer",
   img: profile,
-  about: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.`,
+  about: `Saya percaya teknologi adalah seni. Sebagai seorang perajin digital, saya membangun pengalaman web yang tidak hanya bekerja dengan sempurna, tetapi juga terasa hidup dan intuitif. Dari merajut piksel di antarmuka (front-end) hingga merakit logika di balik layar (back-end), setiap baris kode adalah langkah untuk menciptakan sesuatu yang bermakna. Saya bersemangat dalam memecahkan masalah dan siap berkolaborasi untuk membangun produk digital yang luar biasa.`,
 };
 
 // Enter your Social Media URLs here
@@ -53,42 +57,42 @@ export const socialMediaUrl = {
 export const workDetails = [
   {
     Position: "Frontend Web Developer",
-    Company: `Company Name here`,
-    Location: "Bengaluru",
-    Type: "Full Time",
-    Duration: "Sep 2021 - Dec 2021",
+    Company: `PT SOLARIA INDONESIA`,
+    Location: "REMOTE WORKER",
+    Type: "FREELANCER",
+    Duration: "May 2025 - April 2025",
   },
   {
-    Position: "Internship",
-    Company: `Company Name here`,
-    Location: "Bengaluru",
+    Position: "Web Developer ",
+    Company: `PT KREATIF DIGITAL INDONESIA`,
+    Location: "REMOTE",
     Type: "Internship",
-    Duration: "Sep 2021 - Dec 2021",
+    Duration: "April 2025 - June 2025",
   },
   {
-    Position: "Internship",
-    Company: `Company Name here`,
-    Location: "Bengaluru",
-    Type: "Internship",
-    Duration: "Sep 2021 - Dec 2021",
+    Position: "FULLSTACK DEVELOPER",
+    Company: `codifyhub`,
+    Location: "Medan",
+    Type: "Part Time",
+    Duration: "May 2024 - Now",
   },
 ];
 
 // Enter your Education Details here
 export const eduDetails = [
   {
-    Position: "Frontend Development",
-    Company: "Udemy, YouTube, Google, Medium",
-    Location: "Online",
-    Type: "Full Time",
-    Duration: "Jan 2022 - Present",
+    Position: "Manajemen Informatika",
+    Company: "Politeknik Negeri Medan",
+    Location: "Medan",
+    Type: "Sekolah Vokasi",
+    Duration: "2023 - 2026",
   },
   {
-    Position: "Bachelor in Electronics & Communication",
-    Company: `Your College Name here`,
-    Location: "Bengaluru",
-    Type: "Full Time",
-    Duration: "Aug 2020 - Present",
+    Position: "Dicoding Academy",
+    Company: `Frontend Web Developer`,
+    Location: "Online",
+    Type: "Botcamp acedemy",
+    Duration: "2023 - 2024",
   },
 ];
 
@@ -108,6 +112,12 @@ export const techStackDetails = {
   git: git,
   github: github,
   figma: figma,
+  laravel: laravel,
+  php: php,
+  mysql: mysql,
+  python: python,
+
+
 };
 
 // Enter your Project Details here
@@ -170,6 +180,6 @@ project lorem ipsum generator for dummy content`,
 
 // Enter your Contact Details here
 export const contactDetails = {
-  email: "hi@example.com",
-  phone: "+91 12345 67890",
+  email: "muhammadrendykrisna@gmail.com",
+  phone: "+62822-7537-3233",
 };

@@ -17,7 +17,12 @@ function Technologies() {
     npm,
     postman,
     figma,
-  } = techStackDetails;
+    laravel,
+    php,
+    mysql,
+    python,
+
+    } = techStackDetails;
   return (
     <main className="container mx-auto max-width pt-10 pb-20 ">
       <section>
@@ -37,6 +42,11 @@ function Technologies() {
         <img src={tailwind} title="Tailwind CSS" alt="" />
         <img src={bootstrap} title="Bootstrap" alt="" />
         <img src={sass} title="SASS" alt="" />
+        <img src={laravel} title="laravel" alt="" />
+        <img src={php} title="php" alt="" />
+        <img src={mysql} title="mysql" alt="" />
+        <img src={python} title="python" alt="" />
+
       </section>
       <section>
         <h1 className="text-2xl pt-10 text-dark-heading dark:text-light-heading md:text-4xl xl:text-5xl xl:leading-tight font-bold">
