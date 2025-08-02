@@ -7,7 +7,7 @@ function Home() {
   
   const textContainerRef = useRef(null);
   const myimageref = useRef(null);
-  const ctaButtonRef = useRef(null); // Ref untuk tombol CTA
+  const ctaButtonRef = useRef(null);
 
   useEffect(() => {
     const textElements = textContainerRef.current.children;
@@ -33,7 +33,7 @@ function Home() {
       {
         y: 20,
         opacity: 0,
-        delay: 1.0, // Muncul setelah teks utama
+        delay: 1.0, 
       },
       "start"
     )
@@ -49,7 +49,6 @@ function Home() {
   }, []);
 
   return (
-    // Kita bungkus semua dalam sebuah div container untuk mengatur lebar maksimum
     <div className="relative min-h-screen w-full aurora-background flex items-center justify-center overflow-hidden">
       <main className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center px-6 md:px-8 gap-8 md:gap-12">
         {/* Kiri: Teks */}
@@ -72,15 +71,21 @@ function Home() {
             </div>
           </div>
 
-          {/* Tombol Aksi (CTA) */}
+          {/* === PERUBAHAN DI SINI === */}
+          {/* Tombol Aksi (CTA) diubah menjadi Download CV */}
           <div ref={ctaButtonRef} className="mt-6">
             <a 
-              href="#projects" // Arahkan ke section proyek Anda
-              className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105"
+              href="/cv.pdf" // 1. Arahkan ke file di folder public
+              download="cv.pdf" // 2. Tambahkan atribut download agar file diunduh
+              className="flex items-center gap-2 px-8 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105"
             >
-              My Projects
+              {/* 3. Ganti teks tombol dan tambahkan ikon download */}
+              Download CV
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
             </a>
           </div>
+          {/* === AKHIR PERUBAHAN === */}
+
         </div>
         
         {/* Kanan: Gambar */}
