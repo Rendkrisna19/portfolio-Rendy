@@ -25,3 +25,56 @@ body {
 body::-webkit-scrollbar {
   display: none;
 }
+
+.dark body {
+  background-color: #111827; /* Sesuai dengan dark:from-gray-900 */
+}
+
+.aurora-background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0; /* Letakkan di belakang konten */
+  pointer-events: none; /* Pastikan tidak bisa di-klik */
+  background-image:
+    radial-gradient(at 20% 25%, hsla(212, 90%, 80%, 0.3) 0px, transparent 50%),
+    radial-gradient(at 75% 30%, hsla(289, 80%, 85%, 0.25) 0px, transparent 50%),
+    radial-gradient(at 5% 80%, hsla(330, 90%, 80%, 0.25) 0px, transparent 50%),
+    radial-gradient(at 80% 90%, hsla(190, 95%, 75%, 0.3) 0px, transparent 50%);
+  filter: blur(40px);
+  animation: aurora-flow 16s linear infinite;
+}
+
+/* Penyesuaian untuk Dark Mode */
+.dark .aurora-background::before {
+  background-image:
+    radial-gradient(at 20% 25%, hsla(212, 90%, 60%, 0.2) 0px, transparent 50%),
+    radial-gradient(at 75% 30%, hsla(289, 80%, 50%, 0.2) 0px, transparent 50%),
+    radial-gradient(at 5% 80%, hsla(330, 90%, 60%, 0.15) 0px, transparent 50%),
+    radial-gradient(at 80% 90%, hsla(190, 95%, 50%, 0.2) 0px, transparent 50%);
+  filter: blur(60px); /* Blur lebih besar di dark mode agar lebih halus */
+}
+
+@keyframes aurora-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 2s infinite;
+}

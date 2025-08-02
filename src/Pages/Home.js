@@ -4,84 +4,107 @@ import { personalDetails } from "../Details";
 
 function Home() {
   const { name, tagline, img } = personalDetails;
-  const h11 = useRef();
-  const h12 = useRef();
-  const h13 = useRef();
-  const myimageref = useRef();
+  
+  const textContainerRef = useRef(null);
+  const myimageref = useRef(null);
+  const ctaButtonRef = useRef(null); // Ref untuk tombol CTA
+
   useEffect(() => {
-    const tl = gsap.timeline();
+    const textElements = textContainerRef.current.children;
+    const imageEl = myimageref.current;
+    const buttonEl = ctaButtonRef.current;
+
+    const tl = gsap.timeline({
+      defaults: { duration: 1, ease: "power3.out" },
+    });
+
     tl.from(
-      h11.current,
+      textElements,
       {
-        x: "-100%",
-        delay: 0.8,
+        y: 40,
         opacity: 0,
-        duration: 2,
-        ease: "Power3.easeOut",
+        stagger: 0.2,
+        delay: 0.5,
       },
-      "<"
+      "start"
     )
-      .from(
-        h12.current,
-        {
-          x: "-100%",
-          delay: 0.5,
-          opacity: 0,
-          duration: 2,
-          ease: "Power3.easeOut",
-        },
-        "<"
-      )
-      .from(
-        h13.current,
-        {
-          x: "-100%",
-          delay: 0.1,
-          opacity: 0,
-          duration: 2,
-          ease: "Power3.easeOut",
-        },
-        "<"
-      )
-      .from(
-        myimageref.current,
-        {
-          x: "200%",
-          delay: 0.5,
-          opacity: 0,
-          duration: 2,
-          ease: "Power3.easeOut",
-        },
-        "<"
-      );
+    .from(
+      buttonEl,
+      {
+        y: 20,
+        opacity: 0,
+        delay: 1.0, // Muncul setelah teks utama
+      },
+      "start"
+    )
+    .from(
+      imageEl,
+      {
+        scale: 0.8,
+        opacity: 0,
+        duration: 1.5,
+      },
+      "start+=0.5"
+    );
   }, []);
 
   return (
-    <main className="container mx-auto max-width section md:flex justify-between items-center">
-      <div>
-        <h1
-          ref={h11}
-          className="text-2xl text-dark-heading dark:text-light-heading md:text-4xl xl:text-5xl xl:leading-tight font-bold"
-        >
-          Hi,👋<br></br>My Name is<br></br>
-        </h1>
-        <h1
-          ref={h12}
-          className="text-2xl bg-clip-text bg-gradient text-transparent md:text-4xl xl:text-5xl xl:leading-tight font-bold"
-        >
-          {name}
-        </h1>
-        <h2
-          ref={h13}
-          className="text-2xl text-dark-heading dark:text-light-heading md:text-4xl xl:text-5xl xl:leading-tight font-bold"
-        >
-          {tagline}
-        </h2>
+    // Kita bungkus semua dalam sebuah div container untuk mengatur lebar maksimum
+    <div className="relative min-h-screen w-full aurora-background flex items-center justify-center overflow-hidden">
+      <main className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center px-6 md:px-8 gap-8 md:gap-12">
+        {/* Kiri: Teks */}
+        <div className="relative z-10 flex flex-col gap-3 md:gap-4 items-center text-center md:items-start md:text-left mt-12 md:mt-0">
+          <div ref={textContainerRef}>
+            <div className="overflow-hidden">
+              <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800 dark:text-white">
+                Hi, <span role="img" aria-label="wave">👋</span> I'm
+              </h1>
+            </div>
+            <div className="overflow-hidden mt-1">
+              <h1 className="text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent drop-shadow-md">
+                {name}
+              </h1>
+            </div>
+            <div className="overflow-hidden mt-3">
+              <h2 className="text-xl md:text-2xl font-medium text-gray-600 dark:text-gray-300 tracking-wide">
+                {tagline}
+              </h2>
+            </div>
+          </div>
+
+          {/* Tombol Aksi (CTA) */}
+          <div ref={ctaButtonRef} className="mt-6">
+            <a 
+              href="#projects" // Arahkan ke section proyek Anda
+              className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105"
+            >
+              My Projects
+            </a>
+          </div>
+        </div>
+        
+        {/* Kanan: Gambar */}
+        <div className="relative z-10 w-full flex justify-center md:justify-center">
+          <div ref={myimageref} className="relative group w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80">
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-300 to-purple-400 blur-xl opacity-70 group-hover:opacity-90 transition-all duration-500"></div>
+            <img
+              className="relative w-full h-full object-cover rounded-full shadow-2xl border-4 border-gray-100 dark:border-gray-700"
+              src={img}
+              alt={name}
+            />
+          </div>
+        </div>
+      </main>
+
+      {/* Indikator Scroll Down */}
+      <div className="absolute z-20 bottom-8 left-1/2 -translate-x-1/2">
+        <a href="#about" aria-label="Scroll down">
+          <div className="w-8 h-14 rounded-full border-2 border-gray-500 dark:border-gray-400 flex justify-center items-start p-1 animate-bounce-slow">
+            <div className="w-1 h-2 rounded-full bg-gray-500 dark:bg-gray-400"></div>
+          </div>
+        </a>
       </div>
-      <div className="mt-5 md:mt-0">
-        <img ref={myimageref} className="w-1/2 md:ml-auto" src={img} alt="Pavan MG" />
-      </div>
-    </main>
+    </div>
   );
 }
 
