@@ -49,10 +49,10 @@ export const personalDetails = {
 
 // Enter your Social Media URLs here
 export const socialMediaUrl = {
-  linkdein: "https://www.linkedin.com/",
-  github: "https://www.github.com/",
+  linkdein: "https://www.linkedin.com/in/rendy-krisna-27b6362a5?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+  github: "https://github.com/Rendkrisna19/",
   twitter: "https://twitter.com/",
-  instagram: "https://www.instagram.com/",
+  instagram: "https://www.instagram.com/reendev/",
 };
 
 // Enter your Work Experience here
